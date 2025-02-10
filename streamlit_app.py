@@ -25,7 +25,7 @@ st.write(f"**Wat is {a} × {b}?**")
 # Invoer voor antwoord met sessievariabele
 user_answer = st.text_input(
     "Jouw antwoord:",
-    value=st.session_state.user_answer,
+    value="",
     key="answer",
     help="Typ hier je antwoord en druk op Enter."
 )
