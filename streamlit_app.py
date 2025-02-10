@@ -1,12 +1,6 @@
 import streamlit as st
 import random
 
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
-st.write("Hello world") 
-
 # Functie om een willekeurige oefening te genereren
 def generate_question():
     a = random.randint(1, 12)
