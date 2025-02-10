@@ -39,12 +39,13 @@ if user_answer:
         if user_answer == correct_answer:
             st.success("✅ Correct!")
             st.session_state.score += 1
+            st.session_state.user_answer = ""  # Leegmaken
+            st.session_state.current_question = generate_question()
         else:
             st.error(f"❌ Fout! Het juiste antwoord is {correct_answer}.")
 
         # Reset de invoer en genereer een nieuwe vraag
-        st.session_state.user_answer = ""  # Leegmaken
-        st.session_state.current_question = generate_question()
+        
         
 
     except ValueError:
