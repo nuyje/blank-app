@@ -41,6 +41,7 @@ if user_answer:
             st.session_state.score += 1
             st.session_state.user_answer = ""  # Leegmaken
             st.session_state.current_question = generate_question()
+            st.rerun
         else:
             st.error(f"❌ Fout! Het juiste antwoord is {correct_answer}.")
 
