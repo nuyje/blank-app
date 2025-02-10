@@ -45,7 +45,7 @@ if user_answer:
         # Reset de invoer en genereer een nieuwe vraag
         st.session_state.user_answer = ""  # Leegmaken
         st.session_state.current_question = generate_question()
-        st.rerun()
+        
 
     except ValueError:
         st.warning("⚠️ Voer een geldig getal in.")
