@@ -14,14 +14,21 @@ if "attempts" not in st.session_state:
     st.session_state.attempts = 0
 if "current_question" not in st.session_state:
     st.session_state.current_question = generate_question()
+if "user_answer" not in st.session_state:
+    st.session_state.user_answer = ""
 
 st.title("🧮 Tafels van Vermenigvuldiging Trainer")
 
 a, b, correct_answer = st.session_state.current_question
 st.write(f"**Wat is {a} × {b}?**")
 
-# Invoer voor antwoord
-user_answer = st.text_input("Jouw antwoord:", value="", key="answer", help="Typ hier je antwoord en druk op Enter.")
+# Invoer voor antwoord met sessievariabele
+user_answer = st.text_input(
+    "Jouw antwoord:",
+    value=st.session_state.user_answer,
+    key="answer",
+    help="Typ hier je antwoord en druk op Enter."
+)
 
 # Controleer het antwoord
 if user_answer:
@@ -34,10 +41,11 @@ if user_answer:
             st.session_state.score += 1
         else:
             st.error(f"❌ Fout! Het juiste antwoord is {correct_answer}.")
-        
-        # Genereer een nieuwe vraag
+
+        # Reset de invoer en genereer een nieuwe vraag
+        st.session_state.user_answer = ""  # Leegmaken
         st.session_state.current_question = generate_question()
-        
+        st.rerun()
 
     except ValueError:
         st.warning("⚠️ Voer een geldig getal in.")
