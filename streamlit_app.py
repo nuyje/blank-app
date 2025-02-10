@@ -22,22 +22,21 @@ st.write(f"**Wat is {a} × {b}?**")
 # Invoer voor antwoord met sessievariabele
 user_answer = st.text_input(
     "Jouw antwoord:",
-    value="3",
+    value="",
     key="answer",
     help="Typ hier je antwoord en druk op Enter."
 )
 
 # Controleer het antwoord
-if user_answer:
-    try:
+
+try:
         user_answer = int(user_answer)
         st.session_state.attempts += 1
         
         if user_answer == correct_answer:
             st.success("✅ Correct!")
             st.session_state.score += 1
-            st.session_state.user_answer = ""  # Leegmaken
-            st.session_state.current_question = generate_question()
+            user_answer = ""
             
         else:
             st.error(f"❌ Fout! Het juiste antwoord is {correct_answer}.")
@@ -46,7 +45,7 @@ if user_answer:
         
         
 
-    except ValueError:
+except ValueError:
         st.warning("⚠️ Voer een geldig getal in.")
 
 # Score tonen
