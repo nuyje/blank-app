@@ -43,7 +43,7 @@ if user_answer:
         
         # Genereer een nieuwe vraag
         st.session_state.current_question = generate_question()
-        st.experimental_rerun()
+        st.rerun()
 
     except ValueError:
         st.warning("⚠️ Voer een geldig getal in.")
