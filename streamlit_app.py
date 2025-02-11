@@ -1,52 +1,23 @@
 import streamlit as st
-import random
 
-# Functie om een willekeurige oefening te genereren
-def generate_question():
-    a = random.randint(1, 10)
-    b = random.randint(1, 10)
-    return a, b, a * b
+# Sessievariabele voor inputveld initialiseren
+if "user_input" not in st.session_state:
+    st.session_state.user_input = ""
 
-# Initialiseer sessievariabelen
-if "score" not in st.session_state:
-    st.session_state.score = 0
-if "attempts" not in st.session_state:
-    st.session_state.attempts = 0
+# Functie om invoerveld leeg te maken
+def clear_input():
+    st.session_state.user_input = ""
+    st.rerun()
 
+st.title("📝 Test Input Reset")
 
-st.title("🧮 Tafels van Vermenigvuldiging Trainer")
+# Tekstveld met sessievariabele
+user_input = st.text_input("Typ iets:", value=st.session_state.user_input, key="input_field")
 
-a, b, correct_answer = generate_question()
-st.write(f"**Wat is {a} × {b}?**")
-
-# Invoer voor antwoord met sessievariabele
-user_answer = st.text_input(
-    "Jouw antwoord:",
-    value="",
-    key="answer",
-    help="Typ hier je antwoord en druk op Enter."
-)
-
-# Controleer het antwoord
-
-try:
-        user_answer = int(user_answer)
-        st.session_state.attempts += 1
-        
-        if user_answer == correct_answer:
-            st.success("✅ Correct!")
-            st.session_state.score += 1
-            user_answer = ""
-            
-        else:
-            st.error(f"❌ Fout! Het juiste antwoord is {correct_answer}.")
-
-        # Reset de invoer en genereer een nieuwe vraag
-        
-        
-
-except ValueError:
-        st.warning("⚠️ Voer een geldig getal in.")
-
-# Score tonen
-st.write(f"**Score:** {st.session_state.score} / {st.session_state.attempts}")
+# Knop om invoerveld te resetten
+if st.button("Verzend"):
+    if user_input:
+        st.success(f"Je invoer: {user_input}")
+        clear_input()  # Leegmaken en herladen
+    else:
+        st.warning("Voer eerst iets in.")
