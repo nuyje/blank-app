@@ -1,5 +1,5 @@
 import streamlit as st
-if "animal_input" not in st.session_state:
+if "animal" not in st.session_state:
     st.session_state.animal_input = ""
 
 animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
@@ -14,5 +14,5 @@ if st.button('Check availability'):
     else:
         'We don\'t have that animal.'
 
-st.session_state.animal_input = ""  # Sessievariabele resetten
+st.session_state.animal = ""  
 st.rerun()  # Herlaad de app om de v
