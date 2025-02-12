@@ -2,16 +2,15 @@ import streamlit as st
 
 animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
 
-# Functie om het invoerveld te resetten
-def clear_input():
-    st.session_state.animal_input = ""  # Zet de waarde leeg
-    st.rerun()  # Herstart de app zodat de wijziging zichtbaar wordt
-
-# Initialiseer sessievariabele als die nog niet bestaat
+# Initialiseer sessievariabele
 if "animal_input" not in st.session_state:
     st.session_state.animal_input = ""
 
-# Tekstveld ZONDER `value=`
+# Functie om het invoerveld leeg te maken
+def clear_input():
+    st.session_state.animal_input = ""  # Zet de sessievariabele leeg
+
+# Tekstveld wordt volledig beheerd via `st.session_state`
 animal = st.text_input('Type an animal', key="animal_input")
 
 if st.button('Check availability'):
@@ -20,4 +19,5 @@ if st.button('Check availability'):
     else:
         st.error('We don\'t have that animal.')
 
-    clear_input()  # Roep de functie aan om de invoer te wissen
+    # Reset de input via een callback, zonder `st.rerun()`
+    st.session_state.animal_input = ""
