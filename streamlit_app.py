@@ -4,7 +4,7 @@ if "animal" not in st.session_state:
 
 animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
 
-animal = st.text_input('Type an animal', value=st.session_state.animal_input, key="animal_input")
+animal = st.text_input('Type an animal', value=st.session_state.animal_input, key="animal")
 
 if st.button('Check availability'):
     have_it = animal.lower() in animal_shelter
