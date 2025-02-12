@@ -15,8 +15,7 @@ if st.button('Check availability'):
     else:
         st.error('We don\'t have that animal.')
 
-    # **Leegmaken van de sessievariabele**
-    st.session_state.animal_input = ""
+animal = ""
     
-    # **Forceer update van het tekstveld**
-    st.rerun()
+
+st.rerun()
