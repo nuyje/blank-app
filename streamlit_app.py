@@ -15,7 +15,4 @@ if st.button('Check availability'):
     else:
         st.error('We don\'t have that animal.')
 
-animal = ""
     
-
-st.rerun()
