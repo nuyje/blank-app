@@ -13,5 +13,5 @@ if st.button('Check availability'):
     if st.session_state.animal_input.lower() in animal_shelter:
         st.success('We have that animal!')
     else:
-        st.error('We don\'t have that animal.')
+        st.error(f'We don\'t have {animal} that animal.')
 
