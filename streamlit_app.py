@@ -16,7 +16,7 @@ def check_availability():
 
 
 
-st.session_state.animal_input = st.text_input('Type an animal', key="animal_input")
+st.session_state["animal_input"] = st.text_input('Type an animal', key="animal_input")
 
 check_availability()
 clear_input()
