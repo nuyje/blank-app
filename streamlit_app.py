@@ -18,5 +18,3 @@ if st.button('Check availability'):
     else:
         st.error('We don\'t have that animal.')
 
-clear_input()
-
