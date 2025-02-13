@@ -10,10 +10,9 @@ def clear_input():
 
 clear_input()
 
-st.text_input('Type an animal', key="animal_input")
-animal = st.session_state.animal_input
+animal = st.text_input('Type an animal', key="animal_input" on_change=)
 
-if st.button('Check availability'):
+def check_availability(): 
     if animal.lower() in animal_shelter:
         st.success('We have that animal!')
     else:
