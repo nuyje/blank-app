@@ -7,7 +7,7 @@ animal = st.text_input('Type an animal', key="animal_input")
 def clear_input():
     st.session_state["animal_input"] = ""
 
-st.button("clear text input", on_click=clear_text)
+st.button("clear text input", on_click=clear_input)
 st.write(input)
 
 if st.button('Check availability'):
