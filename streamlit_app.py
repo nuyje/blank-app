@@ -2,13 +2,10 @@ import streamlit as st
 
 animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
 
-
-
 def clear_input():
     st.session_state["animal_input"] = ""
 
-st.button("clear text input", on_click=clear_input)
-
+clear_input()
 
 animal = st.text_input('Type an animal', key="animal_input")
 
