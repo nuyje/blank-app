@@ -8,7 +8,7 @@ def clear_input():
     st.session_state["animal_input"] = ""
 
 st.button("clear text input", on_click=clear_input)
-st.write(input)
+
 
 animal = st.text_input('Type an animal', key="animal_input")
 
